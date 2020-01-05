@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container jumbotron \" style=\"margin-top: 1%\">\n<div class=\"form-group\">\n    <div class=\"form-group form-inline\">\n    <b style=\"margin-right: 1%\">เลือกบัญชี </b>\n    <select #selectacc class=\"form-control\" [ngModel]=\"selectAccount\" (ngModelChange)=\"select($event)\">\n        <option *ngFor='let account of acarr;' [value]=\"account.id\">{{account.account}}</option>\n    </select>\n</div>\n<input type=\"text\" placeholder=\"ชื่อบัญชี\" [(ngModel)]=\"addaccount\" (change)=\"add(addaccount)\" class=\"form-control\" required #addControl=\"ngModel\">\n<button (click)=\"add()\" class=\"btn btn-success\" style=\"margin-top: 1%\" [disabled]=\"addControl.errors\">เพิ่มบัญชี</button>\n</div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container jumbotron \" style=\"margin-top: 1%\">\n<div class=\"form-group\">\n    <div class=\"form-group form-inline\">\n    <b style=\"margin-right: 1%\">เลือกบัญชี </b>\n    <select #selectacc class=\"form-control\" [ngModel]=\"selectAccount\" (ngModelChange)=\"select($event)\">\n        <option *ngFor='let account of acarr;' [value]=\"account.id\">{{account.account}}</option>\n    </select>\n</div>\n<input type=\"text\" placeholder=\"ชื่อบัญชี\" [(ngModel)]=\"addaccount\" (change)=\"add(addaccount)\" class=\"form-control\" required #addControl=\"ngModel\">\n<button (click)=\"add(addaccount)\" class=\"btn btn-success\" style=\"margin-top: 1%\" [disabled]=\"addControl.errors\">เพิ่มบัญชี</button>\n</div>\n</div>\n");
 
 /***/ }),
 
@@ -512,6 +512,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _run_run_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./run/run.service */ "./src/app/run/run.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _display_display_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./display/display.service */ "./src/app/display/display.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+
 
 
 
@@ -543,14 +545,15 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes),
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes, { useHash: true }),
             _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]
         ],
         providers: [
             _account_account_service__WEBPACK_IMPORTED_MODULE_8__["AccountService"],
             _run_run_service__WEBPACK_IMPORTED_MODULE_10__["RunService"],
-            _display_display_service__WEBPACK_IMPORTED_MODULE_12__["DisplayService"]
+            _display_display_service__WEBPACK_IMPORTED_MODULE_12__["DisplayService"],
+            { provide: _angular_common__WEBPACK_IMPORTED_MODULE_13__["LocationStrategy"], useClass: _angular_common__WEBPACK_IMPORTED_MODULE_13__["HashLocationStrategy"] }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
     })

@@ -51,7 +51,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container jumbotron \" style=\"margin-top: 1%\">\n<div class=\"form-group\">\n    <div class=\"form-group form-inline\">\n    <b style=\"margin-right: 1%\">เลือกบัญชี </b>\n    <select #selectacc class=\"form-control\" [ngModel]=\"selectAccount\" (ngModelChange)=\"select($event)\">\n        <option *ngFor='let account of acarr;' [value]=\"account.id\">{{account.account}}</option>\n    </select>\n</div>\n<input type=\"text\" placeholder=\"ชื่อบัญชี\" [(ngModel)]=\"addaccount\" (change)=\"add(addaccount)\" class=\"form-control\" required #addControl=\"ngModel\">\n<button (click)=\"add()\" class=\"btn btn-success\" style=\"margin-top: 1%\" [disabled]=\"addControl.errors\">เพิ่มบัญชี</button>\n</div>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"container jumbotron \" style=\"margin-top: 1%\">\n<div class=\"form-group\">\n    <div class=\"form-group form-inline\">\n    <b style=\"margin-right: 1%\">เลือกบัญชี </b>\n    <select #selectacc class=\"form-control\" [ngModel]=\"selectAccount\" (ngModelChange)=\"select($event)\">\n        <option *ngFor='let account of acarr;' [value]=\"account.id\">{{account.account}}</option>\n    </select>\n</div>\n<input type=\"text\" placeholder=\"ชื่อบัญชี\" [(ngModel)]=\"addaccount\" (change)=\"add(addaccount)\" class=\"form-control\" required #addControl=\"ngModel\">\n<button (click)=\"add(addaccount)\" class=\"btn btn-success\" style=\"margin-top: 1%\" [disabled]=\"addControl.errors\">เพิ่มบัญชี</button>\n</div>\n</div>\n";
     /***/
   },
 
@@ -1090,6 +1090,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _display_display_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./display/display.service */
     "./src/app/display/display.service.ts");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
 
     var appRoutes = [{
       path: 'account',
@@ -1111,8 +1117,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"], _account_account_component__WEBPACK_IMPORTED_MODULE_5__["AccountComponent"], _run_run_component__WEBPACK_IMPORTED_MODULE_6__["RunComponent"], _display_display_component__WEBPACK_IMPORTED_MODULE_9__["DisplayComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes), _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]],
-      providers: [_account_account_service__WEBPACK_IMPORTED_MODULE_8__["AccountService"], _run_run_service__WEBPACK_IMPORTED_MODULE_10__["RunService"], _display_display_service__WEBPACK_IMPORTED_MODULE_12__["DisplayService"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes, {
+        useHash: true
+      }), _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_11__["HttpClientModule"]],
+      providers: [_account_account_service__WEBPACK_IMPORTED_MODULE_8__["AccountService"], _run_run_service__WEBPACK_IMPORTED_MODULE_10__["RunService"], _display_display_service__WEBPACK_IMPORTED_MODULE_12__["DisplayService"], {
+        provide: _angular_common__WEBPACK_IMPORTED_MODULE_13__["LocationStrategy"],
+        useClass: _angular_common__WEBPACK_IMPORTED_MODULE_13__["HashLocationStrategy"]
+      }],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
     })], AppModule);
     /***/
